@@ -19,9 +19,9 @@ body {
 }
 
 .navbar {
-  overflow: hidden;
-  background-color: #333;
-  display: block;
+    overflow: hidden;
+    background-color: #333;
+    display: flex;
 }
 
 .navbar a {
@@ -32,21 +32,59 @@ body {
   text-decoration: none;
 }
 
-.navbar a:hover {
+.menu-root {
+    display: none;
+}
+
+.menu-button {
+    float: left;
+    color: white;
+    text-align: center;
+    padding: 8px;
+    text-decoration: none;
+}
+
+.menu-content {
+    display: none;
+    position: absolute;
+    background-color: #333;
     color: white;
 }
 
-.navbar a:focus {
-    color: white;
+@media (max-width: 768px) {
+    .navbar {
+        overflow: hidden;
+        background-color: #333;
+        flex-direction: vertical;
+        align-items: center;
+    }
+    .menu-root {
+        display: flex;
+        color: white;
+        text-align: center;
+        padding: 8px;
+        border: none;
+        outline: none;
+        background-color: inherit;
+        font-size: inherit;
+        margin: 0;
+    }
+    .menu:hover .menu-content {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .menu-button {
+        display: none;
+    }
 }
 
-.navbar a:visited {
+.navbar a:hover, .navbar a:focus, .navbar a:visited, .navbar-mobile a:hover, .navbar-mobile a:focus, .navbar-mobile a:visited {
     color: white;
 }
 
 header {
     flex: 0 0 auto;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
     padding: 0;
